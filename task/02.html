@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+</head>
+
+<body>
+    2.给定一个罗马数字，将其转换为整数。
+    (其中罗马数字包含:I、V、X、L、C、D 和 M)
+    <script>
+        function parseRomeNumber(rome) {
+            //Ⅰ（1）、X（10）、C（100）、M（1000）、V（5）、L（50）、D（500）
+            let remeObj = {
+                'I': 1,
+                'X': 10,
+                'C': 100,
+                'M': 1000,
+                'V': 5,
+                'L': 50,
+                'D': 500
+            }
+            let romeArr = rome.split('')
+            let sum = 0
+            for (let i = 0; i < romeArr.length; i++) {
+                let current = remeObj[romeArr[i]]
+                let next = remeObj[romeArr[i + 1]]
+                if (current < next) {
+                    sum -= current
+                } else {
+                    sum += current
+                }
+            }
+            return sum
+        }
+        console.log(parseRomeNumber('VLDCM'));
+        console.log(parseRomeNumber('II'));
+        console.log(parseRomeNumber('VI'));
+        console.log(parseRomeNumber('IV'));
+        console.log(parseRomeNumber('CD'));
+    </script>
+</body>
+
+</html>

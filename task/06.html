@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+</head>
+
+<body>
+    6.个位相加
+    给定一个非负整数 num，反复将各个位上的数字相加，直到结果为一位数。返回这个结果
+    <script>
+        function unitAdd(num) {
+            let digits = [];
+            while (num > 0) {
+                let digit = num % 10;  // 获取当前数字的个位数字，例如1234 % 10得到4
+                digits.unshift(digit);
+                num = Math.floor(num / 10);  // 将原数字去掉个位，例如1234 / 10得到123.4，向下取整为123
+            }
+            let res = 0
+            for (let i = 0; i < digits.length; i++) {
+                res += digits[i]
+            }
+            return res < 10 ? res : unitAdd(res)
+        }
+        // 这里定义一个正整数示例，可以替换为任意正整数
+        console.log(unitAdd(1234));
+        console.log(unitAdd(38));
+        console.log(unitAdd(0));
+        console.log(unitAdd(2716));
+
+
+        /*  console.log(unitAdd(1782));
+         console.log(unitAdd(666));
+         console.log(unitAdd(2715));
+         console.log(unitAdd(3816126789)); */
+
+
+
+    </script>
+</body>
+
+</html>

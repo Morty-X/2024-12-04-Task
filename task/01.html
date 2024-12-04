@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+</head>
+
+<body>
+    给定一个非负整数numRows,生成一个杨辉三角的前numRows行，在杨辉三角中除了第一列和最后一列的值都是1，
+    其他位置的值都是左上角和右上角的值的和。
+    <script>
+        // 
+        function pascalTriangle(n) {
+            let res = []
+            for (let i = 0; i < n; i++) {
+                let temp = []
+                for (let k = 0; k < i + 1; k++) {
+                    // 子数组的开头或者结尾位置
+                    if (k === 0 || k === i) {
+                        temp.push(1)
+                    } else {
+                        // 前一个临时数组
+                        let newTemp = res[i - 1]
+                        temp.push(newTemp[k] + newTemp[k - 1])
+                    }
+                }
+                res.push(temp)
+            }
+            return res
+        }
+        console.log(pascalTriangle(5));
+
+    </script>
+</body>
+
+</html>

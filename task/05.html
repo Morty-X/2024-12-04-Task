@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+</head>
+
+<body>
+    给你一个字符串数组words,只返回可以使用在美式键盘 同一行的字母打印出来的单词。
+    请注意,字符串不区分大小写,相同字母的大小写形式都被视为在同一行。
+    美式键盘中:
+    第一行由字符 "qwertyuiop”组成。
+    第二行由字符 "asdfghjkl”组成。
+    第三行由字符 "zxcvbnm”组成。
+    <script>
+        function getWords(words) {
+            let reg = /^([qwertyuiop]+|[asdfghjkl]+|[zxcvbnm]+)$/i;
+            let res = []
+            for (let i = 0; i < words.length; i++) {
+                if (reg.test(words[i])) {
+                    res.push(words[i])
+                }
+            }
+            return res
+        }
+        let words1 = ["Hello", "Alaska", "Dad", "Peace"]
+        let words2 = ['omk']
+        let words3 = ['adsdf', 'sfd']
+        console.log(getWords(words1));
+        console.log(getWords(words2));
+        console.log(getWords(words3));
+
+
+    </script>
+</body>
+
+</html>

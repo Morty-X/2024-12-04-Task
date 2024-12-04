@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+
+<body>
+    3.两个数组的交集
+    给定两个数组nums1 和 nums2，返回它们的交集。
+    输出结果中的每个元素一定是 唯一 的。我们可以不考虑输出结果的顺序
+    <script>
+        function intersection(nums1, nums2) {
+            let res = []
+            for (let i = 0; i < nums1.length; i++) {
+                if (nums2.indexOf(nums1[i]) !== -1) {
+                    res.push(nums1[i])
+                }
+            }
+            // 在对res去重
+            let newRes = []
+            for (let k = 0; k < res.length; k++) {
+                if (newRes.indexOf(res[k]) === -1) {
+                    newRes.push(res[k])
+                }
+            }
+            return newRes
+        }
+        console.log(intersection([1, 2, 2, 1], [2, 2]));
+        console.log(intersection([4, 9, 5], [9, 3, 9, 8, 5, 4]));
+
+    </script>
+</body>
+
+</html>
